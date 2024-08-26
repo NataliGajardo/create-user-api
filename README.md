@@ -28,6 +28,14 @@ http://localhost:8080/swagger-ui.html
 ### 1. Clonar el Repositorio
 ### 2. Compilar y Ejecutar el Proyecto
 ./gradlew bootRun
+### !Disclamer: 
+Actualmente el proyecto se encuentra con una discrepancia al levantarlo por primera vez y su uso en veces posteriores, no afecta la funcionalidad completa del proyecto con este work arround: 
+Una vez buildeado el proyecto, descomentar la linea 
+   @Mapping(target = "id", expression = "java(getUuid())")
+en la clase PhoneDataMapper y comentar las lineas en cada Mapper correspondiente. 
+UserDataMapper INSTANCE = Mappers.getMapper( UserDataMapper.class );
+PhoneDataMapper INSTANCE = Mappers.getMapper( PhoneDataMapper.class );
+Debido al tiempo necesario para cumplir con la entrega , se deja esta solucion momentanea, estoy buscando activamente una solucion definitiva. 
 ### 3. Acceder a la Documentación de la API
 http://localhost:8080/swagger-ui.html
 ### 4. Ejecución de Pruebas
