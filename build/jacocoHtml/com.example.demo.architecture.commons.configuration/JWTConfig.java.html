@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JWTConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.architecture.commons.configuration</a> &gt; <span class="el_source">JWTConfig.java</span></div><h1>JWTConfig.java</h1><pre class="source lang-java linenums">package com.example.demo.architecture.commons.configuration;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+@Component
+<span class="fc" id="L11">public class JWTConfig{</span>
+<span class="fc" id="L12">    private final String SECRET_KEY = &quot;privateToken&quot;;</span>
+
+public String createToken(String username,boolean isActive) {
+<span class="fc" id="L15">    return Jwts.builder()</span>
+<span class="fc" id="L16">            .claim(&quot;username&quot;,username)</span>
+          //  .claim(&quot;isActive&quot;,isActive)
+<span class="fc" id="L18">            .setIssuedAt(new Date(System.currentTimeMillis()))</span>
+<span class="fc" id="L19">            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) // 10 horas</span>
+<span class="fc" id="L20">            .signWith(SignatureAlgorithm.HS256, SECRET_KEY)</span>
+<span class="fc" id="L21">            .compact();</span>
+}
+
+public Boolean validateToken(String token, String username) {
+<span class="fc" id="L25">    final String tokenUsername = extractUsername(token);</span>
+<span class="pc bpc" id="L26" title="2 of 4 branches missed.">    return (tokenUsername.equals(username) &amp;&amp; !isTokenExpired(token));</span>
+}
+
+public String extractUsername(String token) {
+<span class="fc" id="L30">    return extractAllClaims(token).get(&quot;username&quot;, String.class);</span>
+}
+
+private Claims extractAllClaims(String token) {
+<span class="fc" id="L34">    return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();</span>
+}
+
+Boolean isTokenExpired(String token) {
+<span class="fc" id="L38">    return extractAllClaims(token).getExpiration().before(new Date());</span>
+}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

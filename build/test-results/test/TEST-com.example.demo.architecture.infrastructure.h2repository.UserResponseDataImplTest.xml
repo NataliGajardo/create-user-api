@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.demo.architecture.infrastructure.h2repository.UserResponseDataImplTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-08-26T04:33:24" hostname="CL-IT01235" time="0.056">
+  <properties/>
+  <testcase name="testSaveUser()" classname="com.example.demo.architecture.infrastructure.h2repository.UserResponseDataImplTest" time="0.043"/>
+  <testcase name="testFindByEmail_ReturnsEmptyList()" classname="com.example.demo.architecture.infrastructure.h2repository.UserResponseDataImplTest" time="0.003"/>
+  <testcase name="testFindByEmail()" classname="com.example.demo.architecture.infrastructure.h2repository.UserResponseDataImplTest" time="0.003"/>
+  <testcase name="testDisableUserById()" classname="com.example.demo.architecture.infrastructure.h2repository.UserResponseDataImplTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

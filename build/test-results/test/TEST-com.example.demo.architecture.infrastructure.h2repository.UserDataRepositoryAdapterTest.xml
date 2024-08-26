@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.demo.architecture.infrastructure.h2repository.UserDataRepositoryAdapterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-08-26T04:33:24" hostname="CL-IT01235" time="0.287">
+  <properties/>
+  <testcase name="testFindByEmail_ReturnsEmptyList()" classname="com.example.demo.architecture.infrastructure.h2repository.UserDataRepositoryAdapterTest" time="0.247"/>
+  <testcase name="testFindByEmail()" classname="com.example.demo.architecture.infrastructure.h2repository.UserDataRepositoryAdapterTest" time="0.006"/>
+  <testcase name="testDisableUserById_UserNotFound()" classname="com.example.demo.architecture.infrastructure.h2repository.UserDataRepositoryAdapterTest" time="0.011"/>
+  <testcase name="testCreateUser()" classname="com.example.demo.architecture.infrastructure.h2repository.UserDataRepositoryAdapterTest" time="0.012"/>
+  <testcase name="testDisableUserById()" classname="com.example.demo.architecture.infrastructure.h2repository.UserDataRepositoryAdapterTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

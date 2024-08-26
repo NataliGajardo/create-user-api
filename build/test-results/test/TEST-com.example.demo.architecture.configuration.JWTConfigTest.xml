@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.demo.architecture.configuration.JWTConfigTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-08-26T04:33:23" hostname="CL-IT01235" time="0.129">
+  <properties/>
+  <testcase name="testExpiredToken()" classname="com.example.demo.architecture.configuration.JWTConfigTest" time="0.115"/>
+  <testcase name="testExtractUsername()" classname="com.example.demo.architecture.configuration.JWTConfigTest" time="0.004"/>
+  <testcase name="testGenerateToken()" classname="com.example.demo.architecture.configuration.JWTConfigTest" time="0.002"/>
+  <testcase name="testValidateToken()" classname="com.example.demo.architecture.configuration.JWTConfigTest" time="0.004"/>
+  <testcase name="testInvalidToken()" classname="com.example.demo.architecture.configuration.JWTConfigTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

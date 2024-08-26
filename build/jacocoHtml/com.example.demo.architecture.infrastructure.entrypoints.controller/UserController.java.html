@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.architecture.infrastructure.entrypoints.controller</a> &gt; <span class="el_source">UserController.java</span></div><h1>UserController.java</h1><pre class="source lang-java linenums">package com.example.demo.architecture.infrastructure.entrypoints.controller;
+
+import com.example.demo.architecture.domain.model.UserRequest;
+import com.example.demo.architecture.domain.service.UserServiceImpl;
+import com.example.demo.architecture.infrastructure.entrypoints.controller.api.UserApi;
+import jakarta.validation.Valid;
+import org.apache.coyote.BadRequestException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.UUID;
+
+@RestController
+public class UserController  implements UserApi {
+    private final UserServiceImpl userService;
+
+<span class="fc" id="L18">    public UserController(UserServiceImpl userService) {</span>
+<span class="fc" id="L19">        this.userService = userService;</span>
+<span class="fc" id="L20">    }</span>
+
+    public ResponseEntity&lt;Object&gt; registrarUsuario(@Valid @RequestBody UserRequest userRequest) throws Exception {
+<span class="fc" id="L23">        var newUser = userService.createUser(userRequest);</span>
+<span class="fc" id="L24">        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);</span>
+    }
+
+    public ResponseEntity&lt;Object&gt; getUserByEmail(@RequestParam String email) throws BadRequestException {
+<span class="fc" id="L28">        var users = userService.findByEmail(email);</span>
+<span class="fc" id="L29">            return ResponseEntity.ok().body(users);</span>
+        }
+
+    @Override
+    public ResponseEntity&lt;Object&gt; disableUserById(UUID userId) {
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        return  Boolean.TRUE.equals(userService.disableUserById(userId)) ?</span>
+<span class="fc" id="L35">                ResponseEntity.ok().body(&quot;Usuario deshabilitado&quot;) :</span>
+<span class="fc" id="L36">                ResponseEntity.status(HttpStatus.NOT_FOUND).body(&quot;Usuario no encontrado&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

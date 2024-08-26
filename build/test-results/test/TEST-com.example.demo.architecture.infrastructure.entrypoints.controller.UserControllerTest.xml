@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.demo.architecture.infrastructure.entrypoints.controller.UserControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-08-26T04:33:24" hostname="CL-IT01235" time="0.066">
+  <properties/>
+  <testcase name="testDisableUserById_UserFound()" classname="com.example.demo.architecture.infrastructure.entrypoints.controller.UserControllerTest" time="0.045"/>
+  <testcase name="testGetUserByEmail_UserFound()" classname="com.example.demo.architecture.infrastructure.entrypoints.controller.UserControllerTest" time="0.004"/>
+  <testcase name="testRegistrarUsuario()" classname="com.example.demo.architecture.infrastructure.entrypoints.controller.UserControllerTest" time="0.005"/>
+  <testcase name="testDisableUserById_UserNotFound()" classname="com.example.demo.architecture.infrastructure.entrypoints.controller.UserControllerTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
