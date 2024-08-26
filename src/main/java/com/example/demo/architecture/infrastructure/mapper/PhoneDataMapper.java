@@ -15,7 +15,7 @@ public interface PhoneDataMapper {
 
     PhoneDTO sourceToDestination(PhoneData phoneData);
   List<PhoneData> toPhoneDataList(List<PhoneDTO> phoneDto);
-    @Mapping(target = "id", expression = "java(getUuid())")
+   // @Mapping(target = "id", expression = "java(getUuid())")
     PhoneData toPhoneData(PhoneDTO phoneDto);
 
     default UUID getUuid(){
